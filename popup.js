@@ -35,11 +35,11 @@ function searchIssue()
 function RestCall()
 {
   var xhttp = new XMLHttpRequest();
-  xhttp.open("POST", "http://jira/rest/api/2/issue/TEBASE-1521", false);
+  xhttp.open("GET", "http://jira/rest/auth/1/session", false);
   xhttp.setRequestHeader("Content-type", "application/json");
   xhttp.send();
   var response = JSON.parse(xhttp.responseText);
-  
+  document.getElementById("username").innerHTML = response.name;
 }
 
 function searchLCSBug()
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('searchIssue').addEventListener('click',searchIssue);
   document.getElementById('searchLCSBug').addEventListener('click',searchLCSBug);
   document.getElementById('searchLCSTask').addEventListener('click',searchLCSTask);
-
+  RestCall();
 }
 );
 
