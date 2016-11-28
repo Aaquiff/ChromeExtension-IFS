@@ -1,4 +1,26 @@
 
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('searchText').addEventListener('click', searchText);
+    document.getElementById('myOpenIssues').addEventListener('click', myOpenIssues);
+    document.getElementById('toVerify').addEventListener('click', toVerify);
+    document.getElementById('searchIssue').addEventListener('click', searchIssue);
+    document.getElementById('searchLCSBug').addEventListener('click', searchLCSBug);
+    document.getElementById('searchLCSTask').addEventListener('click', searchLCSTask);
+    loadUserInfo();
+}
+);
+
+function loadUserInfo()
+{
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "http://jira/rest/api/2/myself", false);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send();
+    var response = JSON.parse(xhttp.responseText);
+    document.getElementById("username").innerHTML = response.displayName;
+    document.getElementById("userImage").src = response.avatarUrls["48x48"];
+}
+
 function renderStatus(statusText) {
   document.getElementById('status').textContent = statusText;
 }
@@ -67,17 +89,7 @@ function searchLCSTask()
   }  
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('searchText').addEventListener('click',searchText);
-  document.getElementById('myOpenIssues').addEventListener('click',myOpenIssues);
-  document.getElementById('toVerify').addEventListener('click',toVerify);
-  document.getElementById('searchIssue').addEventListener('click',searchIssue);
-  document.getElementById('searchLCSBug').addEventListener('click',searchLCSBug);
-  document.getElementById('searchLCSTask').addEventListener('click',searchLCSTask);
-  RestCall();
+function myOpenIssues()
+{
+
 }
-);
-
-
-
-
