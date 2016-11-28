@@ -10,6 +10,16 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 );
 
+function getUserId()
+{
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "http://jira/rest/api/2/myself", false);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send();
+    var response = JSON.parse(xhttp.responseText);
+    return response.name;
+}
+
 function loadUserInfo()
 {
     var xhttp = new XMLHttpRequest();
@@ -89,7 +99,3 @@ function searchLCSTask()
   }  
 }
 
-function myOpenIssues()
-{
-
-}
