@@ -1,8 +1,8 @@
 
 document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('searchText').addEventListener('click', searchText);
-    document.getElementById('myOpenIssues').addEventListener('click', myOpenIssues);
-    document.getElementById('toVerify').addEventListener('click', toVerify);
+    // document.getElementById('searchText').addEventListener('click', searchText);
+    // document.getElementById('myOpenIssues').addEventListener('click', myOpenIssues);
+    // document.getElementById('toVerify').addEventListener('click', toVerify);
     document.getElementById('searchIssue').addEventListener('click', searchIssue);
     document.getElementById('searchLCSBug').addEventListener('click', searchLCSBug);
     document.getElementById('searchLCSTask').addEventListener('click', searchLCSTask);
